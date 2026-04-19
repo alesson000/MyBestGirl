@@ -1,40 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <title>Pra vc Mb 💖</title>
-  <style>
-    body {
-      background: #ffdde1;
-      text-align: center;
-      font-family: Arial;
-      padding: 50px;
-    }
-    h1 {
-      color: #ff4d6d;
-    }
-    button {
-      padding: 10px 20px;
-      border: none;
-      background: #ff4d6d;
-      color: white;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Para Você Minha Princesa❤️</title>
+
+<style>
+body {
+    margin: 0;
+    background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Animação suave de entrada */
+.container {
+    margin-top: 20%;
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Texto principal */
+h1 {
+    font-size: 40px;
+}
+
+/* Texto que aparece aos poucos */
+#texto {
+    font-size: 20px;
+    margin-top: 20px;
+    opacity: 0;
+    transition: 1s;
+}
+
+/* Botão */
+button {
+    margin-top: 30px;
+    padding: 12px 25px;
+    border: none;
+    background: white;
+    color: #ff4d6d;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* Mensagem final */
+#final {
+    margin-top: 20px;
+    font-size: 24px;
+    opacity: 0;
+    transition: 1s;
+}
+</style>
+
 </head>
+
 <body>
 
-<h1>Oi 😊</h1>
-<p>Eu fiz isso só pra te dizer que você é especial pra mim, Clarice..</p>
+<div class="container">
+    <h1>💖 Para você 💖</h1>
 
-<button onclick="mostrarMensagem()">Clica aqui</button>
+    <div id="texto"></div>
 
-<p id="msg"></p>
+    <button onclick="mostrarMensagem()">Clique aqui ❤️</button>
+
+    <div id="final"></div>
+</div>
 
 <script>
+const mensagem = "Desde que você apareceu, Eu nunca parei de pensar em ti, você mudou minha visao que agora nao consigo viver vc, te amo mt de vdd msm, nao sei se vc tem a mesma sensaçao, mas saiba que eu sempre estarei cntg.. 💞🥺";
+
+let i = 0;
+
 function mostrarMensagem() {
-  document.getElementById("msg").innerHTML =
-    "Você consegue deixar tudo mais leve, sério 💖";
+    const texto = document.getElementById("texto");
+    texto.style.opacity = 1;
+
+    let interval = setInterval(() => {
+        texto.innerHTML += mensagem[i];
+        i++;
+        if (i >= mensagem.length) {
+            clearInterval(interval);
+            mostrarFinal();
+        }
+    }, 50);
+}
+
+function mostrarFinal() {
+    setTimeout(() => {
+        const final = document.getElementById("final");
+        final.style.opacity = 1;
+        final.innerHTML = "💘 Eu gosto muito de ti, clarice, te amoo 💘";
+    }, 1000);
 }
 </script>
 
